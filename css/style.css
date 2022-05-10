@@ -1,0 +1,163 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #d7dbd7;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-cont {
+    width: 90%;
+    height: 80%;
+    background-color: #fff;
+    display: flex;
+}
+
+aside {
+    width: 35%;
+    background-color: teal;
+}
+
+header {
+    height: 80px;
+    padding: 0 20px;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.user-img {
+    max-height: 100%;
+    margin-right: 10px;
+    background-color: #f2f2f2;
+    border-radius: 100%;
+}
+
+.img-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+}
+
+.header-icons {
+    width: 100px;
+    height: 50px;
+    color: #b1b1b1;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-cont {    
+    display: flex;
+    flex-direction: column;
+}
+
+.notif-banner {
+    height: 100px;
+    padding-left: 20px;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+}
+
+.notif-banner i {
+    color: #8edafc;
+    background-color: #f2fbfe;
+    font-size: 1.4rem;
+    margin: 0 10px;
+    padding: 20px 17px;
+    border-radius: 100%;
+}
+
+.notif-banner a {
+    color: #507485;
+}
+
+.search-cont {
+    height: 50px;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.search-input {
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+}
+
+.chat-selector {
+    background-color: #fff;
+    flex-grow: 1;
+}
+
+.chat-user {
+    height: 100px;
+    padding: 10px 10px 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-prev span, .chat-time {
+    color: #b5b9bb;
+    font-size: .9rem;
+}
+
+main {
+    width: 65%;
+    background-color: teal;
+}
+
+.chat-body {
+    height: calc(100% - 160px);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-bubble {
+    width: 40%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: chartreuse;
+}
+
+.chat-bubble.sent {
+    align-self: flex-end;
+}
+
+.chat-input-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    background-color: burlywood;
+    padding: 10px 0;
+}
+
+.chat-input {
+    height: 100%;
+    width: 100%;
+    padding-left: 20px;
+}
