@@ -11,13 +11,15 @@
 <body>
 
     <div class="main-container" id="app">
+        <div class="top-bg"></div>
+        <div class="bottom-bg"></div>
 
         <div class="app-cont">
             <aside>
                 <header>
                     <div class="user">
-                        <img src="img/01.jpg" alt="" class="user-img">
-                        <h4>Carlo Carli</h4>
+                        <img :src="user.avatar" :alt="user.userName" class="user-img">
+                        <h4>{{user.userName}}</h4>
                     </div>
                     <div class="header-icons">
                         <i class="fas fa-circle-notch"></i>
@@ -35,32 +37,20 @@
 
                     </div>
                     <div class="search-cont">
+                        <i class="fas fa-search"></i>
                         <input type="text" class="search-input" placeholder="Cerca o inizia una nuova chat." autocomplete="off">
                     </div>
                     <div class="chat-selector">                        
-                        <div class="chat-user">
+                        <div v-for="user, i in contacts" :key="i" class="chat-user">
                             <div class="user">
-                                <img src="img/02.jpg" alt="" class="user-img">
+                                <img :src="user.avatar" :alt="user.userName" class="user-img">
                                 <div class="chat-prev">
-                                    <h4>Michele</h4>
-                                    <span>Tutto fatto! ...</span>
+                                    <h4>{{user.userName}}</h4>
+                                    <span>{{user.messages[user.messages.length - 1].text}}</span>
                                 </div>
                             </div>
                             <div class="chat-time">
-                                10/01/2020 16:15
-                            </div>
-                        </div>
-
-                        <div class="chat-user">
-                            <div class="user">
-                                <img src="img/03.jpg" alt="" class="user-img">
-                                <div class="chat-prev">
-                                    <h4>Lorem Ipsum</h4>
-                                    <span>Lorem Ipsum</span>
-                                </div>
-                            </div>
-                            <div class="chat-time">
-                                Lorem ipsum dolor sit amet.
+                                {{user.messages[user.messages.length - 1].date}}
                             </div>
                         </div>
                     </div>
@@ -70,10 +60,10 @@
             <main>
                 <header>
                     <div class="user">
-                        <img src="img/02.jpg" alt="" class="user-img">
+                        <img src="img/02.svg" alt="" class="user-img">
                         <div>
                             <h4>Lorem Ipsum</h4>
-                            <span>Lorem ipsum dolor sit amet.</span>
+                            <span class="last-login">Ultimo accesso il {{contacts[0].messages[contacts[0].messages.length - 1].date}}</span>
                         </div>
                     </div>
                     <div class="header-icons">
@@ -84,16 +74,17 @@
                 </header>
 
                 <div class="chat-body">
-                    <div class="chat-bubble sent">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, officia.</div>
-                    <div class="chat-bubble sent">Lorem, ipsum.</div>
-                    <div class="chat-bubble received">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, aperiam?</div>
+                    <div class="chat-overlay"></div>
+                    <div v-for="message, i in contacts[0].messages" :key="i"  class="chat-bubble" :class="message.status">{{message.text}}
+                        <span class="message-time">{{message.date}}</span>
+                    </div>
 
                 </div>
 
                 <div class="chat-input-cont">
-                    <div class="img-placeholder"></div>
+                    <i class="far fa-smile"></i>
                     <input type="text" class="chat-input" placeholder="Scrivi un messaggio.">
-                    <div class="img-placeholder"></div>
+                    <i class="fas fa-microphone"></i>
                 </div>
             </main>
 
