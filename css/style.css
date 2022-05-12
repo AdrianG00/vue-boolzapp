@@ -30,8 +30,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    height: 80%;
+    width: 85%;
+    height: 95%;
     background-color: #fff;
     display: flex;
 }
@@ -64,12 +64,6 @@ header {
     margin-right: 10px;
     background-color: #f2f2f2;
     border-radius: 100%;
-}
-
-.img-placeholder {
-    width: 50px;
-    height: 50px;
-    background-color: blue;
 }
 
 .header-icons {
@@ -152,6 +146,10 @@ header {
     font-size: .9rem;
 }
 
+.search-false {
+    display: none;
+}
+
 main {
     width: 65%;
     background-color: teal;
@@ -168,6 +166,7 @@ main {
     background-color: #000;
     background-image: url(../img/mine.jpg);
     position: relative;
+    overflow-y: auto;
 }
 
 .message-container {

@@ -10,12 +10,16 @@
 </head>
 <body>
 
+
     <div class="main-container" id="app">
         <div class="top-bg"></div>
         <div class="bottom-bg"></div>
 
+    
         <div class="app-cont">
+          
             <aside>
+                
                 <header>
                     <div class="user">
                         <img :src="user.avatar" :alt="user.userName" class="user-img">
@@ -28,6 +32,7 @@
                     </div>
                 </header>
                 <div class="chat-cont">
+                    <!-- banner notifiche  -->
                     <div class="notif-banner">
                         <i class="fas fa-bell-slash"></i>
                         <div>
@@ -36,12 +41,15 @@
                         </div>
 
                     </div>
+
                     <div class="search-cont">
                         <i class="fas fa-search"></i>
-                        <input type="text" class="search-input" placeholder="Cerca o inizia una nuova chat." autocomplete="off">
+                        <input type="text" class="search-input" placeholder="Cerca o inizia una nuova chat." autocomplete="off" v-model="chatSearch" @keyup="search()">
                     </div>
-                    <div class="chat-selector">                        
-                        <div v-for="user, i in contacts" :key="i" class="chat-user" @click="chatOpen(i)" :class="user.visible === true ? 'chat-active' : '' ">
+                    
+                    <div class="chat-selector">
+                       
+                        <div v-for="user, i in contacts" :key="i" class="chat-user" @click="chatOpen(i)" :class="{'chat-active': user.visible, 'search-false': user.search === false}">
                             <div class="user">
                                 <img :src="user.avatar" :alt="user.userName" class="user-img">
                                 <div class="chat-prev">
@@ -56,13 +64,14 @@
                     </div>
                 </div>
             </aside>
-
+        
             <main>
+                
                 <header>
                     <div class="user" v-for="contact in contacts" v-if="contact.visible === true">
-                        <img :src="contact.avatar" :alt="contact.name" class="user-img">
+                        <img :src="contact.avatar" :alt="contact.userName" class="user-img">
                         <div>
-                            <h4>{{contact.name}}...</h4>
+                            <h4>{{contact.userName}}</h4>
                             <span class="last-login">Ultimo accesso il {{contact.messages[contact.messages.length - 1].date}}</span>
                         </div>
                     </div>
@@ -73,21 +82,25 @@
                     </div>
                 </header>
 
+                
                 <div class="chat-body">
                     <div class="chat-overlay"></div>
+                    
                     <div class="message-container" v-for="contact in contacts">
                         <div v-if="contact.visible === true" v-for="message in contact.messages" class="chat-bubble" :class="message.status">{{message.text}}
                             <span class="message-time">{{message.date}}</span>
                         </div>
-                    </div>       
+                    </div>
+                        
+
                 </div>
 
+                
                 <div class="chat-input-cont">
                     <i class="far fa-smile"></i>
-                    <input type="text" class="chat-input" placeholder="Scrivi un messaggio.">
+                    <input type="text" class="chat-input" placeholder="Scrivi un messaggio." v-model="newMessage.text" @keyup.enter="sendMessage" >
                     <i class="fas fa-microphone"></i>
                 </div>
-
             </main>
 
         </div>
